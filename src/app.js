@@ -18,7 +18,7 @@ const app = express()
 dotenv.config()
 
 
-module.exports.handler = serverless(app)
+ export default serverless(app)
 
 
 
@@ -61,7 +61,7 @@ app.engine('hbs', engine({
             return moment(date).format('DD/MM/YYYY')
         }
     },
-    layoutsDir: __dirname + '/views/layouts',
+    layoutsDir: __dirname + '/dist/layouts',
     runtimeOptions: {
         allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true,
