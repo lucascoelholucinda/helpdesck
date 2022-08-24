@@ -1,5 +1,6 @@
 /*carregando os Importes */
 import express from 'express'
+import serverless from 'serverless-http'
 import bodyparser from 'body-parser'
 import { engine } from 'express-handlebars'
 import moment from 'moment'
@@ -15,6 +16,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express()
 dotenv.config()
+
+
+module.exports.handler = serverless(app)
+
 
 
 /* configuraçoes*/
