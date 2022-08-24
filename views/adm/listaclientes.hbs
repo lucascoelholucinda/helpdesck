@@ -1,0 +1,68 @@
+<div class=" d-flex justify-content-center" role="main">
+    <section class="bg-white p-3 w-50 rounded " style="box-shadow: 0px 5px 10px black;">
+        <section class="bg-dark p-3 rounded" style="box-shadow: 0px 5px 5px black;">
+            <h4 class="card text-center text-dark fw-bold bg-white p-3">Listagem de Clientes:</h4>
+
+            <a class=" btn btn-outline-success fw-bold d-flex justify-content-center mt-5" data-bs-toggle="collapse"
+                data-bs-target="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1"
+                style="box-shadow: 0px 5px 5px black">
+                Lista Completa De Clientes No Sistema
+            </a>
+
+            <div class="collapse mt-5" id="collapse1">
+                {{#each Clientes}}
+                <div class="mb-5 card rounded p-2" style="background-color: #198754;box-shadow: 0px 10px 20px black;">
+                    <ul class="card fw-bold bg-white d-flex flex-column gap-3 p-2 mt-2 "
+                        style="font-style: italic; list-style: none;">
+                        <li class="ms-3">Empresa: {{Empresa}}</li>
+                        <li class="ms-3">Representante: {{Representante}}</li>
+                        <li class="ms-3">Telefone: {{Telefone}}</li>
+                        <li class="ms-3">Email: {{Email}}</li>
+                    </ul>
+                </div>
+                {{/each}}
+            </div>
+            {{#each pesquisadeclientes }}
+            <div class="mb-5 card rounded p-2 mt-5" style="background-color: #198754;box-shadow: 0px 10px 20px black;">
+                <ul class="card fw-bold bg-white d-flex flex-column gap-3 p-2 mt-2 "
+                    style="font-style: italic; list-style: none;">
+                    <li class="ms-3">Empresa: {{Empresa}}</li>
+                    <li class="ms-3">Representante: {{Representante}}</li>
+                    <li class="ms-3">Telefone: {{Telefone}}</li>
+                    <li class="ms-3">Email: {{Email}}</li>
+                    <li class="d-flex flex-row justify-content-end" style="font-style: normal;">
+                        <a href="/listaclientes" class="btn btn-outline-secondary">limpar Toda
+                            Pesquisa</a>
+                    </li>
+                </ul>
+            </div>
+            {{/each}}
+            <p class="text-white text-center fw-bold mt-5">Gostaria De Encontrar um Cliente ou Clientes em Especifio?
+            </p>
+            <form class="d-flex justify-content-center align-items-center gap-4" action="/buscarcliente/" method="get"
+                enctype="multipart/form-data">
+                <input class="form-control  text-center" type="text" name="cliente"
+                    placeholder="Digite a empresa, o representante ou o email"
+                    style="text-transform: lowercase" required>
+                <button class="btn btn-outline-success fw-bold" type="submit">Pesquisar</button>
+            </form>
+            <p class="text-white text-center fw-bold mt-5">Gostaria De Encontrar um Cliente ou Clientes em Especifio
+                pelo
+                Telefone?</p>
+            <form class="d-flex justify-content-center align-items-center  gap-4" action="/buscarcliente/" method="get"
+                enctype="multipart/form-data">
+                <input class="form-control  text-center w-50" type="text" name="Telefone" id="telefone2"
+                    onpaste="return false" ondrop="return false"
+                    onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="Digite um o telefone"
+                    style="text-transform: lowercase" required>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+                <script type="text/javascript">
+                    $("#telefone2").mask("(00) 0000-00000");
+                </script>
+                <button class="btn btn-outline-success fw-bold" type="submit">Pesquisar</button>
+            </form>
+        </section>
+    </section>
+</div>

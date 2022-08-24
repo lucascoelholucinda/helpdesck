@@ -1,0 +1,41 @@
+<section class="d-flex justify-content-center" role="main">
+  <div class="bg-white rounded p-3" style="width: 38em;box-shadow: 0px 5px 10px black">
+    <form class="bg-dark was-validated rounded" action="/Login/" method="get" style="box-shadow: 0px 5px 10px black">
+      <ul class="d-flex flex-column align-items-center gap-2" style="list-style: none;">
+        <li class="d-flex justify-content-center"><img
+            src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661041335/logout_o6kja7_cklbpz.png" class=" mt-4"
+            alt="Imagem de login">
+        </li>
+        <li class="mt-2">
+          <h5 class="text-center text-white fw-bold ">Bem-vindo</h5>
+        </li>
+        <li>
+          <p class="text-center text-white fw-bold">Digite seu Login e Senha para acessar o Sistema!</p>
+        </li>
+        <li class=" d-flex flex-rows justify-content-center align-items-center mt-4">
+          <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661043144/icons8-login-75_1_adybb8_okfx6x.png"
+            alt="icone de login">
+          <span class="text-white fw-bold ms-2">login:</span>
+        </li>
+        <li>
+          <input name="login" type="text" style="text-transform:lowercase " class="form-control text-center" required>
+        </li>
+        <li class="d-flex flex-rows justify-content-center align-items-center mt-4">
+          <img
+            src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661043244/icons8-mostrar-a-senha-75_vh7cm0_fcanma.png"
+            alt="icone de senha">
+          <span class="text-white fw-bold ms-2">Senha:</span>
+        </li>
+        <li class="d-flex justify-content-center">
+          <input name="senha" type="password" onpaste="return false" ondrop="return false" maxlength="4"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="form-control text-center w-75"
+            required>
+        </li>
+      </ul>
+      <div class="d-flex flex-rows justify-content-center">
+        <button class="btn btn-success mt-5  mx-4 mb-2" type="submit">Entrar</button>
+        <a href="/cadastrar"><button class="btn btn-success mt-5 " type="button">Cadastrar-se</button></a>
+      </div>
+    </form>
+  </div>
+</section>

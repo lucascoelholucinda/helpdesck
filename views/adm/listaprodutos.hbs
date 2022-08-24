@@ -1,0 +1,204 @@
+<div class=" d-flex justify-content-center" role="main">
+    <section class="bg-white  p-3 w-50 rounded" style="box-shadow: 0px 5px 10px black">
+        <section class="bg-dark p-3 rounded" style="box-shadow: 0px 5px 5px black">
+            <h4 class="card text-center text-dark fw-bold bg-white p-3">Listagem De Produto:</h4>
+            <a class=" btn btn-outline-info fw-bold d-flex justify-content-center mt-5" data-bs-toggle="collapse"
+                data-bs-target="#collapse1" aria-controls="collapse1" style="box-shadow: 0px 5px 5px black">
+                Lista Completa De Produtos No Sistema
+            </a>
+            <section class="collapse mt-5" id="collapse1">
+                {{#each produtos}}
+                <header class="bg-white p-3" style="border-radius: 5px 5px 0px 0px"></header>
+                <div class="d-flex flex-column p-2 mb-5 gap-4"
+                    style="box-shadow: 0px 10px 20px black;background-color: rgb(43, 189, 233);border-radius: 0px 0px 5px 5px;">
+                    <div class="d-flex flex-row justify-content-end me-3 ">
+                        <img src="{{Foto.url}}" alt="imagem do produto na lista"
+                            class="card border border-dark  border-5  mt-2" width="500" height="400">
+                    </div>
+                    <ul class="card fw-bold bg-white p-2" style="font-style: italic; list-style: none;">
+                        <li class="ms-3 mt-2">Nome Do Produto: {{NomedoProduto}}</li>
+                        <li class="ms-3 mt-2">Valor Atual do Produto: {{Valor}}</li>
+                        <li class="ms-3 mt-2">Quantidade no Estoque: {{Quantidade}}</li>
+                        <li class="ms-3 mt-2">Cadastrador: {{Cadastrador}}</li>
+                    </ul>
+                </div>
+                {{/each}}
+            </section>
+            {{#each pesquisadeprodutos }}
+            <header class="bg-white p-3 mt-5" style="border-radius: 5px 5px 0px 0px"></header>
+            <div class="d-flex flex-column p-2 mb-5 gap-4 bg-info"
+                style="box-shadow: 0px 10px 20px black;border-radius: 0px 0px 5px 5px;">
+                <div class="d-flex flex-row justify-content-end me-3 ">
+                    <img src="{{Foto.url}}" alt="imagem de pesquisa" class="card border border-dark  border-5  mt-2"
+                        width="500" height="400">
+                </div>
+                <ul class="card fw-bold bg-white p-2" style="font-style: italic; list-style: none;">
+                    <li class="ms-3 mt-2">Nome Do Produto: {{NomedoProduto}}</li>
+                    <li class="ms-3 mt-2">Valor Atual do Produto: {{Valor}}</li>
+                    <li class="ms-3 mt-2">Quantidade no Estoque: {{Quantidade}}</li>
+                    <li class="ms-3 mt-2">Cadastrador: {{Cadastrador}}</li>
+                </ul>
+                <ul class="d-flex flex-column align-items-center gap-2" style="list-style: none">
+                    <li>
+                        <a href="/listaprodutos" class="btn btn-secondary" style="font-style:normal">limpar
+                            Pesquisa</a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-warning fw-bold" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Atualizar dados do Produto
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-danger fw-bold" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2">
+                            Excluir Produto
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            {{/each}}
+            <p class="text-center text-white fw-bold mt-5">Gostaria De Encontrar um Produto em Especifio pelo Nome ou
+                Por Seu Cadastro?</p>
+            <form class="d-flex justify-content-center gap-3" action="/buscarproduto/" method="get"
+                enctype="multipart/form-data">
+                <input class="form-control w-75 text-center" type="text" name="pesquisa"
+                    placeholder="Digite o Nome do Produto Ou Quem o Cadastrou" style="text-transform: lowercase"
+                    required>
+                <button class="btn btn-outline-info fw-bold" type="submit">Pesquisar</button>
+            </form>
+            <p class="text-center text-white fw-bold mt-5">Gostaria De Encontrar um Produto em Especifio Pelo Valor?</p>
+            <form class="d-flex justify-content-center gap-3" action="/buscarproduto/" method="get"
+                enctype="multipart/form-data">
+                <input class="form-control w-50 text-center" type="text" name="valor" id="Valor" data-thousands="."
+                    data-decimal="," data-prefix="R$ " placeholder="Digite um valor específico" required>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+                <script>$("#Valor").maskMoney()</script>
+                <button class="btn btn-outline-info fw-bold" type="submit">Pesquisar</button>
+            </form>
+            <form action="/realizarAlteracaoDeProduto?_metodo=PUT" method="post" enctype="multipart/form-data">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+                    <section class="modal-dialog ">
+                        <section class="modal-content bg-dark">
+                            <div class="modal-header bg-white">
+                                <h5 class="modal-title text-dark" id="exampleModalLabel">Tem Certeza Que Deseja
+                                    Atualizar Esse
+                                    Produto?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <p class="d-flex justify-content-center align-items-center card p-3 text-dark text-center fw-bold mt-4 ms-2 me-2">Aviso!Escolha Somente Um dos Campos Abaixo!</p>
+                            <hr class="bg-white">
+                            <ul class="d-flex flex-rows align-items-center justify-content-center"
+                                style="list-style: none">
+                                {{#each pesquisadeprodutos}}
+                                <li class="col-sm-10">
+                                    <p class="text-white text-center fw-bold">Digite Aqui Um Novo Nome!</p>
+                                    <input type="text" name="nomedoprodutonovo"
+                                        placeholder="Nome atual: {{NomedoProduto}}"
+                                        class="form-control text-dark text-center">
+                                </li>
+                            </ul>
+                            <hr class="bg-white">
+                            <ul class="d-flex flex-rows align-items-center justify-content-center">
+                                <li class="col-sm-10">
+                                    <p class="text-white text-center fw-bold">Digite Aqui um Novo Valor!</p>
+                                    <input type="text" placeholder="Valor atual: {{Valor}}" name="valornovo" id="Valor2"
+                                        data-thousands="." data-decimal="," data-prefix="R$ "
+                                        class="form-control text-dark text-center">
+                                    <script
+                                        src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                    <script
+                                        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+                                    <script>$("#Valor2").maskMoney()</script>
+                                </li>
+                            </ul>
+                            <hr class="bg-white">
+                            <ul class="d-flex flex-rows align-items-center justify-content-center">
+                                <li class="col-sm-10">
+                                    <p class="text-white text-center fw-bold">Escolha uma nova Foto!</p>
+                                    <input type="file" name="fotonova" class="form-control text-dark text-center">
+                                </li>
+                            </ul>
+                            <hr class="bg-white">
+                            <ul class="d-flex flex-rows align-items-center justify-content-center">
+                                <li class="col-sm-10">
+                                    <p class="text-white text-center fw-bold">Digite Aqui Uma Nova Quantidade!</p>
+                                    <input type="number" name="novaquantidade"
+                                        placeholder="Quantidade atual: {{Quantidade}}"
+                                        class="form-control text-dark text-center" min="0"
+                                        onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57">
+                                </li>
+                            </ul>
+                            <hr class="bg-white">
+                            <ul class="d-flex flex-column align-items-center justify-content-center">
+                                <li>
+                                    <p class="text-white text-center fw-bold">Caso tenha certeza,Por favor,
+                                        Digite sua senha de Login abaixo!</p>
+                                </li>
+                                <li> <input type="password" name="senhadigitada" maxlength="4" placeholder="senha"
+                                        class="form-control text-dark text-center" required></li>
+                                {{/each}}
+                            </ul>
+                            {{#each chavedeFuncionario}} 
+                            <input type="hidden" name="senhadousuario" value="{{senha}}">
+                            {{/each}}
+                            {{#each pesquisadeprodutos}}
+                            <input type="hidden" name="id" value="{{_id}}">
+                            <input type="hidden" name="imagem" value="{{Foto.public_id}}">
+                            {{/each}}
+                            <div class="modal-footer bg-white">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-warning fw-bold w-50">Atualizar
+                                    Produto</button>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </form>
+            <form action="/excluirProduto?_metodo=DELETE" method="post">
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel">
+                    <section class="modal-dialog ">
+                        <section class="modal-content bg-dark">
+                            <div class="modal-header bg-white">
+                                <h5 class="modal-title text-dark">Tem Certeza Que Deseja
+                                    Excluir Esse
+                                    Produto?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <ul class="mt-5 d-flex flex-column align-items-center justify-content-center"
+                                style="list-style: none">
+                                <li>
+                                    <p class="text-white text-center fw-bold">Caso tenha certeza,Por favor,
+                                        Digite sua senha de Login abaixo!</p>
+                                </li>
+                                <li class="col-sm-6">
+                                    <input type="password" name="senhadigitada" maxlength="4"
+                                        placeholder="senha de login" class="form-control text-dark text-center"
+                                        required>
+                                    {{#each chavedeFuncionario}}
+                                    <input type="hidden" name="senhadousuario" value="{{senha}}">
+                                    {{/each}}
+                                    {{#each pesquisadeprodutos}}
+                                    <input type="hidden" name="id" value="{{_id}}">
+                                    <input type="hidden" name="imagem" value="{{Foto.public_id}}">
+                                    {{/each}}
+                                </li>
+                            </ul>
+                            <div class="modal-footer bg-white">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-outline-danger fw-bold w-50">Excluir
+                                    Produto</button>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+            </form>
+        </section>
+    </section>
+</div>

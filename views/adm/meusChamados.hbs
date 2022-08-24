@@ -1,0 +1,84 @@
+<div class=" d-flex justify-content-center" role="main">
+    <section class="bg-white p-3 rounded w-50" style="box-shadow: 0px 5px 10px black;">
+        <section class="bg-dark p-3" style="box-shadow: 0px 5px 5px black ;border-radius: 5px 5px 5px 5px">
+            <h4 class="card text-center text-dark fw-bold bg-white p-3">Listagem de Seus Chamados:</h4>
+
+            <a class=" btn btn-outline-primary fw-bold d-flex justify-content-center mt-5" data-bs-toggle="collapse"
+                data-bs-target="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1"
+                style="box-shadow: 0px 5px 5px black">
+                Lista Completa De Seus Chamados
+            </a>
+
+            <div class="collapse mt-5" id="collapse1">
+                {{#each listadechamadoFuncionario}}
+                <header class="bg-white p-3" style="border-radius: 5px 5px 0px 0px"></header>
+                <div class="d-flex flex-column gap-3 mb-5 p-2 bg-primary"
+                    style="box-shadow: 0px 10px 20px black;border-radius: 0px 0px 5px 5px">
+                    <div class="d-flex flex-row justify-content-end me-3 ">
+                        <img src="{{Foto.url}}" alt="imagem do produto na lista"
+                            class="card border border-dark  border-5  mt-2" width="500" height="400">
+                    </div>
+                    <ul class="card fw-bold bg-white p-2 " style="font-style: italic;list-style: none;">
+                        <li class="ms-3">Titulo: {{Titulo}}</li>
+                        <li class="ms-3 mt-2">Descrição: {{Descricao}}</li>
+                        <li class="ms-3 mt-2">Tipo De Manutenção: {{Manutencao}}</li>
+                        <li class="ms-3 mt-2">Tipo De Status: {{Status}}</li>
+                        <li class="ms-3 mt-2">Tempo Estimado: {{#formatDate Tempoestimado}}{{/formatDate}}</li>
+                    </ul>
+                    <a href="/alteracaodestatus?chave={{id}}" type="button" class="btn btn-dark fw-bold w-25">Alterar
+                        Status</a>
+                </div>
+
+                {{/each}}
+            </div>
+            {{#each pesquisaFuncionario}}
+            <header class="card p-3 mt-5" style="border-radius: 5px 5px 0px 0px"></header>
+            <div class="d-flex flex-column p-2 mb-5 gap-4 bg-primary"
+                style="list-style: none;box-shadow: 0px 10px 20px black;border-radius: 0px 0px 5px 5px;">
+                <div class="d-flex flex-row justify-content-end me-3 ">
+                    <img src="{{Foto.url}}" alt="imagem de chamado em processo"
+                        class="card border border-dark  border-5  mt-2" width="500" height="400">
+                </div>
+                <ul class="d-flex flex-column gap-3 p-2 mt-2 rounded" style="list-style: none">
+                    <div class="card fw-bold bg-white p-2 " style="font-style: italic">
+                        <li class="ms-3">Titulo: {{Titulo}}</li>
+                        <li class="ms-3 mt-2">Descrição: {{Descricao}}</li>
+                        <li class="ms-3 mt-2">Tipo De Manutenção: {{Manutencao}}</li>
+                        <li class="ms-3 mt-2">Tipo De Status: {{Status}}</li>
+                        <li class="ms-3 mt-2">Tempo Estimado: {{#formatDate Tempoestimado}}{{/formatDate}}</li>
+                    </div>
+                    <ul class="d-flex flex-column justify-content-center align-items-center gap-2"
+                        style="list-style: none">
+                        <li>
+                            <a href="/alteracaodestatus?chave={{id}}" type="button" class="btn btn-dark fw-bold">Alterar
+                                Status</a>
+                        </li>
+                        <li>
+                            <a href="/meusChamados" class="btn btn-secondary fw-bold">limpar
+                                Pesquisa</a>
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+            {{/each}}
+            <p class="text-center text-white fw-bold mt-5 me-5">Gostaria De Encontrar um Chamado
+                ou Chamados em Especifio?
+            </p>
+            <form class="d-flex flex-row align-items-center justify-content-center gap-3"
+                action="/buscandochamadosdofuncionario/" method="get">
+                <input class="form-control text-center w-75 ms-4" type="text" name="funcionario"
+                    placeholder="Digite um titulo, uma descrição, uma manutenção ou o status"
+                    style="text-transform: lowercase" required>
+                <button class="btn btn-outline-primary fw-bold" type="submit">Pesquisar</button>
+            </form>
+            <p class="text-center text-white fw-bold mt-5 me-5">Gostaria De Encontrar um
+                Chamado em especifio pela Data?</p>
+            <form class="d-flex flex-row align-items-center justify-content-center gap-3"
+                action="/buscandochamadosdofuncionario/" method="get" enctype="multipart/form-data">
+                <input class="form-control text-center w-50" type="date" name="Data" placeholder="Digite uma data"
+                    style="text-transform: lowercase" required>
+                <button class="btn btn-outline-primary fw-bold" type="submit">Pesquisar</button>
+            </form>
+        </section>
+    </section>
+</div>

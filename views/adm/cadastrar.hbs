@@ -1,0 +1,45 @@
+<section class="d-flex justify-content-center" role="main">
+  <div class="bg-white rounded p-3" style="width: 38em;box-shadow: 0px 5px 10px black;">
+    <form class="card-body bg-dark was-validated rounded" action="/usuario/" method="post">
+      <ul class="d-flex flex-column align-items-center gap-2" style="list-style: none;">
+        <li class="d-flex justify-content-center"><img
+            src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661041335/logout_o6kja7_cklbpz.png" 
+            class="mt-2" alt="Imagem de login"></li>
+        <li>
+          <p class="text-center text-white fw-bold mt-4">Digite Login e Senha corretamente para cadastrar no sistema!
+          </p>
+        </li>
+        <li>
+          <span class="text-white fw-bold ms-2">Nome:</span>
+        </li>
+        <li>
+          <input name="Nome" type="text" class="form-control text-center" placeholder="Digite Seu Primeiro Nome" style="text-transform:lowercase " required>
+        </li>
+        <li>
+          <span class="text-white fw-bold ms-2">Cargo:</span>
+        </li>
+        <li>
+          <input name="Cargo" type="text" class="form-control text-center" placeholder="Digite O Cargo Que Desempenha" style="text-transform:lowercase " required>
+        </li>
+        <li>
+          <span class="text-white fw-bold ms-2">Login:</span>
+        </li>
+        <li>
+          <input name="login" type="text" class="form-control text-center" placeholder="Login Somente Com letras"  style="text-transform:lowercase " required>
+        </li>
+        <li>
+          <span class="text-white fw-bold ms-2">Senha:</span>
+        </li>
+        <li class="d-flex justify-content-center">
+          <input name="senha" type="password" class="form-control text-center" placeholder="Senha de 4 digitos"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57" class="" maxlength="4" required>
+        </li>
+      </ul>
+      <div class="d-flex flex-rows justify-content-center mt-4">
+        <button class="btn btn-success mx-4 mb-2" type="submit">Cadastrar</button>
+        <a href="/"><button class="btn btn-success ms-4" type="button">Voltar</button></a>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>

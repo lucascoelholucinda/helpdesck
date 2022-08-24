@@ -1,0 +1,91 @@
+<div class=" d-flex justify-content-center" role="main">
+    <section class="bg-white p-3 rounded w-50 " style="box-shadow: 0px 5px 10px black">
+        <section class="bg-dark p-3 rounded" style="box-shadow: 0px 5px 5px black">
+            <h4 class=" card text-center text-dark fw-bold bg-white p-3 ">Realizar Alteçoes do Chamado:</h4>
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                {{#each alterarInformacoes}}
+                <form class="rounded w-75 mt-3 bg-primary" action="/realizarAlteracao?_metodo=PUT" method="post"
+                    style="box-shadow: 0px 10px 20px black">
+                    <ul class="d-flex flex-column gap-3 p-2 mt-2" style="list-style: none">
+                        <li>
+                            <p class="text-center text-dark fw-bold">Selecione a manutenção a ser Realizada:</p>
+                            <select name="manutencao" class="form-select bg-dark text-white text-center fw-bold "
+                                aria-label=".form-select-sm example">
+                                <option value="" selected>Manutenção Atual: {{Manutencao}}</option>
+                                <option value="adaptativa">adaptativa</option>
+                                <option value="corretiva">corretiva</option>
+                                <option value="evolutiva/perfectiva">evolutiva/perfectiva</option>
+                                <option value="preventiva">preventiva</option>
+                            </select>
+                        <li>
+                            <p class="text-center text-dark fw-bold">Selecione um Status:</p>
+                            <select name="status" class="form-select bg-dark text-white text-center fw-bold "
+                                aria-label=".form-select-sm example">
+                                <option value="" selected>Status Atual : {{Status}}</option>
+                                <option value="em espera">em espera</option>
+                                <option value="em processo">em processo</option>
+                            </select>
+                        </li>
+                        <li>
+                            <p class="text-center text-dark fw-bold">Selecione uma Data:</p>
+                            <p class="text-center text-white fw-bold">Data Atual: {{#formatDate
+                                Tempoestimado}}{{/formatDate}}</p>
+                            <input type="date" name="data" class="form-control bg-dark text-white text-center">
+                        </li>
+                        <li class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-outline-dark fw-bold w-50">Realizar
+                                alteração</button>
+                        </li>
+                </form>
+                {{/each}}
+                <form class="d-flex justify-content-center" action="/excluirChamado?_metodo=DELETE" method="post">
+                    <button type="button" class="btn btn-outline-danger fw-bold w-50" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Excluir Chamado
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <section class="modal-dialog ">
+                            <section class="modal-content bg-dark">
+                                <div class="modal-header bg-white ">
+                                    <h5 class="modal-title" id="exampleModalLabel">Tem Certeza Que Deseja Excluir Esse
+                                        Chamado?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <ul class="d-flex flex-column align-items-center justify-content-center"
+                                    style="list-style: none;">
+                                    <li>
+                                        <p class="text-center text-white fw-bold mt-4">Caso tenha certeza, Por favor
+                                            Digite sua senha de Login abaixo!</p>
+
+                                    </li>
+                                    <li>
+                                        <input type="password" name="senhadigitada" maxlength="4"
+                                            class="form-control text-dark text-center mb-5" required>
+                                    </li>
+                                    <li>
+                                        {{#each chavedeFuncionario}}
+                                        <input type="hidden" name="senhadousuario" value="{{senha}}">
+                                        {{/each}}
+                                        {{#each alterarInformacoes}}
+                                        <input type="hidden" name="id" value="{{id}}">
+                                        <input type="hidden" name="imagem" value="{{Foto.public_id}}">
+                                        {{/each}}
+                                    </li>
+                                </ul>
+                                <div class="modal-footer bg-white">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-outline-danger fw-bold w-50">Excluir
+                                        Chamado</button>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </form>
+                </ul>
+            </div>
+        </section>
+    </section>
+</div>

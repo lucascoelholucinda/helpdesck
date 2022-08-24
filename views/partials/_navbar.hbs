@@ -1,0 +1,114 @@
+<header class="bg-dark fixed-top d-flex justify-content-between align-items-center gap-5"
+  style="box-shadow: 0px 2px 5px black;height: 5em;">
+  {{#if funcionarioentrando }}
+  <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1660951450/senai_logo_gk0jhc_j1fi6i.png"
+    alt="logo do fiesc sesi" class="ms-3">
+  {{#each funcionarioentrando }}
+  <button class="navbar-toggler btn btn-outline-light fw-bold" type="button" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+    Precisa De Ajuda?
+  </button>
+  <ul class="d-flex flex-row align-items-center mt-4 gap-2" style="list-style:none ;">
+    <li class="mt-3">
+      <p class="text-white fw-bold">Bem-Vindo(a) {{Nome}}</p>
+    </li>
+    <li class="me-3">
+      <a href="/" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Gostaria de Sair do Sistema?">
+        <img class="bg-white p-1 rounded-circle"
+          src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661014173/usuario_iomyts_zhgng9.png"
+          alt="imagem de login" style="box-shadow: 0px 2px 5px black">
+      </a>
+    </li>
+  </ul>
+  {{/each}}
+</header>
+{{else}}
+<header class="bg-dark fixed-top d-flex justify-content-around align-items-center"
+  style="box-shadow: 0px 2px 5px black;height: 5em;">
+  <p class="text-success fw-bold border border-3 border-white rounded p-1 mt-3"
+    style="font-style: italic;box-shadow: 0px 4px 6px black">Desenvolvedor: Lucas Coelho Lucinda</p>
+  <ul class="d-flex flex-row align-items-center mt-3">
+    <li> <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1660951450/senai_logo_gk0jhc_j1fi6i.png"
+        alt="logo do fiesc sesi">
+    </li>
+  </ul>
+  <ul class="d-flex flex-row align-items-center mt-4" style="list-style: none;">
+    <li>
+      <a class="btn btn-outline-light btn-floating  m-2" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Whatsapp para Contato: +55 48 8473-2588" style="box-shadow: 0px 4px 6px black">
+        <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661041854/whatsapp_g2f3k8_lhgu25.png"
+          alt="img whatsapp"></a>
+    </li>
+    <li>
+      <a class="btn btn-outline-light btn-floating m-2" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Linkedin Profissional" href="https://www.linkedin.com/in/lucas-coelho-lucinda-4863751b4/"
+        style="box-shadow: 0px 4px 6px black">
+        <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661041981/linkedin_2_m7snum_qdmqzw.png"
+          alt="img linkedin"></a>
+    </li>
+    <li>
+      <a class="btn btn-outline-light btn-floating m-2" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="Gmail para Contato: lucas.c.lucinda@gmail.com" style="box-shadow: 0px 4px 6px black">
+        <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661042092/gmail_f2h9la_isdvrp.png"
+          alt="img gmail"></a>
+    </li>
+
+    <li>
+      <a class="btn btn-outline-light btn-floating m-2" data-bs-toggle="tooltip" data-bs-placement="top"
+        title="GitHub Profissional: LucasWhatever " href="https://github.com/LucasWhatever"
+        style="box-shadow: 0px 4px 6px black">
+        <img src="https://res.cloudinary.com/daxkdqdex/image/upload/v1661042209/gitHub_ykq1g6_xzhrjk.png"
+          alt="img github"></a>
+    </li>
+  </ul>
+</header>
+{{/if}}
+
+<nav class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+    {{#each funcionarioentrando }}
+    <h5 id="offcanvasNavbarLabel">Para Onde Gostaria De Ir?</h5>
+    {{/each}}
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <section class="offcanvas-body bg-dark">
+    <ul class=" bg-white rounded p-2 d-flex flex-column align-items-center gap-4 mt-5" style="list-style:none">
+      <li class="rounded" style="box-shadow: 0px 2px 5px black">
+        <a href="/home" class="btn btn-outline-dark bg-success">
+          Home
+        </a>
+      </li>
+      <li class="rounded" style="box-shadow: 0px 2px 5px black">
+        <a href="/chamados" class="btn btn-outline-dark bg-success">
+          Chamado
+        </a>
+      </li>
+      <li class="rounded" style="box-shadow: 0px 2px 5px black">
+        <a href="/listadechamados" class="btn btn-outline-dark bg-success">
+          Lista de Chamados
+        </a>
+      </li>
+      <li class="rounded" style="box-shadow: 0px 2px 5px black">
+        <a href="/listaprodutos" class="btn btn-outline-dark bg-success">
+          Produtos
+        </a>
+      </li>
+      <li class="rounded" style="box-shadow: 0px 2px 5px black;">
+        <a href="/listaclientes" class="btn btn-outline-dark bg-success">
+          Clientes
+        </a>
+      </li>
+      <li class="rounded" style="box-shadow: 0px 2px 5px black">
+        <a href="/meusChamados" class="btn btn-outline-dark bg-primary">
+          Meus Chamados
+        </a>
+      </li>
+      <li class="rounded" style="box-shadow: 0px 2px 5px black">
+        <a href="/" class="btn btn-outline-dark bg-danger" role="button">
+          Sair
+        </a>
+      </li>
+    </ul>
+  </section>
+</nav>
+</header>
