@@ -1,6 +1,5 @@
 /*carregando os Importes */
 import express from 'express'
-import serverless from 'serverless-http'
 import bodyparser from 'body-parser'
 import { engine } from 'express-handlebars'
 import moment from 'moment'
@@ -16,11 +15,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express()
 dotenv.config()
-
-
- export default serverless(app)
-
-
 
 /* configuraçoes*/
 
@@ -61,7 +55,7 @@ app.engine('hbs', engine({
             return moment(date).format('DD/MM/YYYY')
         }
     },
-    layoutsDir: __dirname + '/dist/layouts',
+    layoutsDir: __dirname + '/views/layouts',
     runtimeOptions: {
         allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true,

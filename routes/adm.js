@@ -1,7 +1,6 @@
 import express from 'express'
 const app = express()
 const router = express.Router() 
-app.use('/.netlify/functions/app',router)
 import uploadUser from '../upload/uploadimg.js'
 import admController from '../controller/adm.js'
 
