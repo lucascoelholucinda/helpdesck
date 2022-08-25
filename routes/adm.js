@@ -1,5 +1,4 @@
 import express from 'express'
-const app = express()
 const router = express.Router() 
 import uploadUser from '../upload/uploadimg.js'
 import admController from '../controller/adm.js'
