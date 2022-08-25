@@ -84,9 +84,7 @@ app.use(express.static(path.join(__dirname, "public")))
 /* public */
 
 /* rotas */
-app.get('/home', (req, res) => {
-    res.render('adm/index')
-})
+app.use('/', adm)
 /* rotas */
 
 /* outros */
