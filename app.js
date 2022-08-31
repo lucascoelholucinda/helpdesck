@@ -52,7 +52,7 @@ app.engine('hbs', engine({
     defaultLayout: 'main',
     helpers: {
         formatDate: (date) => {
-            return moment(date).format('DD/MM/YYYY')
+            return moment(date).add(1,"days").format('DD/MM/YYYY')
         }
     },
     layoutsDir: __dirname + '/views/layouts',

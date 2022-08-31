@@ -49,9 +49,9 @@ const cadastrarChamado = async (req, res) => {
                 let validacaoDeEmail = await operacoes.validacaoDeEmail(await operacoes.correcaoDeVariavel(req.body.Email),)
                 if (validacaoDeEmail == true) {
                     let dataselecionada = await operacoes.listandoDatas(req.body.Tempoestimado)
-                    if (moment(new Date(req.body.Tempoestimado)).format("DD/MM/YYYY") >= new Date().toLocaleDateString('pt-br')) {
+                    if (moment(new Date(req.body.Tempoestimado)).add(1, 'day').format("YYYY/MM/DD") >= moment(new Date()).format("YYYY/MM/DD")) {
                         if (dataselecionada != undefined && dataselecionada != null && dataselecionada != "") {
-                            if (dataselecionada.Nomedofuncionario == req.body.Nomedofuncionario && moment(new Date(dataselecionada.Tempoestimado)).format("YYYY-MM-DD") == req.body.Tempoestimado) {
+                            if (dataselecionada.Nomedofuncionario == req.body.Nomedofuncionario && moment(new Date(dataselecionada.Tempoestimado)).add(1, 'day').format("YYYY-MM-DD") == req.body.Tempoestimado) {
                                 req.flash("aviso_msg", "Aviso! Esse Funcionario Já Possui Um Chamado Marcado Para Essa Data, Por favor Escolha Outra Data, Para Encaminhar O Chamado!"); return res.redirect("/chamados")
                             }
                         }
@@ -114,9 +114,6 @@ const cadastrarChamado = async (req, res) => {
 }
 // METODO PARA CADASTRAR UM CHAMADO NO SISTEMA HELPDESCK
 
-
-
-
 // PAGINA DE LISTAGEM DE CHAMADOS NO SISTEMA HELPDESCK
 const paginaDeListagemDeChamados = async (req, res) => { if (usuarionosistema.length != 0) { try { let emespera = await operacoes.contagemDeChamadosEmEspera(); let emprocesso = await operacoes.contagemDeChamadosEmProcesso(); let listadechadosemespera = await operacoes.listandoChamadosEmEspera(); let listadechadosemeprocesso = await operacoes.listandoChamadosEmProcesso(); if (listagemDeChamados != null && listagemDeChamados != "" && listagemDeChamados != undefined) { let novalista = listagemDeChamados; listagemDeChamados = []; return res.render('adm/listadechamados', { emespera: emespera, emprocesso: emprocesso, listadechadosemespera: listadechadosemespera, listadechadosemeprocesso: listadechadosemeprocesso, funcionarioentrando: usuarionosistema, listadechamadospesquisados: novalista }) } return res.render('adm/listadechamados', { emespera: emespera, emprocesso: emprocesso, listadechadosemespera: listadechadosemespera, listadechadosemeprocesso: listadechadosemeprocesso, funcionarioentrando: usuarionosistema }) } catch (erro) { console.log("Erro Ao Inicializar Pagina De Listagem De Chamados: " + erro); req.flash("aviso_msg", "Erro Ao Inicializar Pagina De Listagem De Chamados!"); return res.redirect('/home') } } return res.redirect("/") }
 // PAGINA DE LISTAGEM DE CHAMADOS NO SISTEMA HELPDESCK
@@ -173,7 +170,7 @@ const realizarAlteracao = async (req, res) => {
         let atualizacao; let iddeparametro = statusFuncionario.map(function (e) { return e.id; }); if (req.body.manutencao != undefined && req.body.manutencao != "" && req.body.manutencao != null) { atualizacao = await operacoes.updateManutencao(iddeparametro, req.body.manutencao); if (atualizacao != "" && atualizacao != null && atualizacao != undefined) { req.flash("success_msg", "Atualização De Manutenção Realizada Com Sucesso!"); return res.redirect("/meusChamados") } }
         if (req.body.status != undefined && req.body.status != "" && req.body.status != null) { atualizacao = await operacoes.updateStatus(iddeparametro, req.body.status); if (atualizacao != "" && atualizacao != null && atualizacao != undefined) { req.flash("success_msg", "Atualização De Status Realizada Com Sucesso!"); return res.redirect("/meusChamados") } }
         if (req.body.data != undefined && req.body.data != "" && req.body.data != undefined) {
-            if (moment(new Date(req.body.data)).format("DD-MM-YYYY") >= new Date().toLocaleDateString('pt-br')) {
+            if (moment(new Date(req.body.data)).format("YYYY/MM/DD") >= moment(new Date()).format("YYYY/MM/DD")) {
                 if (await operacoes.buscandoTempo(req.body.data) == "") {
                     atualizacao = await operacoes.updateTempoestimado(iddeparametro, req.body.data); if (atualizacao != "" && atualizacao != null && atualizacao != undefined) {
                         req.flash("success_msg", "Atualização De Tempo Estimado Realizada Com Sucesso!"); return res.redirect("/meusChamados")

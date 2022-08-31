@@ -1,11 +1,9 @@
 <div class=" d-flex justify-content-center " role="main">
-    {{!-- TELA DIREITA --}}
     <section class="bg-white rounded p-3 w-50" style="box-shadow: 0px 5px 10px black;">
         <section class="bg-dark text-white p-3 rounded" style="box-shadow: 0px 5px 10px black">
             <h2 class="card text-center text-dark fw-bold bg-white p-3">
                 Realizar Chamado:</h2>
             <form class="was-validated" action="/cadastrarchamado/" method="post" enctype="multipart/form-data">
-                {{!-- CAMPO DO CHAMADO --}}
                 <a class="fw-bold rounded fs-5 btn btn-outline-light d-flex justify-content-center mt-5"
                     data-bs-toggle="collapse" data-bs-target="#collapse1" role="button" aria-expanded="false"
                     aria-controls="collapse1" style="box-shadow: 0px 5px 10px black">
@@ -26,7 +24,7 @@
                     <ul class="mt-4 d-flex flex-rows align-items-center justify-content-center"
                         style="list-style: none;">
                         <li class="col-sm-3  fw-bold  me-2">
-                            <span>Foto Do Produto:</span>
+                            <label htmlFor="Foto">Foto Do Produto:</label>
                         </li>
                         <li class="col-sm-8 me-5">
                             <input class="form-control bg-dark text-white text-center" type="file" name="Foto" required>
@@ -39,9 +37,9 @@
                             <span>Valor:</span>
                         </li>
                         <li class="col-sm-8 me-5">
-                            <input class="form-control bg-dark text-white text-center" type="text" id="Valor"
-                                name="Valor" placeholder="Valor do Produto" data-thousands="." data-decimal=","
-                                data-prefix="R$ " required>
+                            <input class="form-control bg-dark text-white text-center" type="text" name="Valor" id="Valor"
+                                placeholder="Valor do Produto" data-thousands="." data-decimal="," data-prefix="R$ "
+                                required>
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                             <script
                                 src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
@@ -103,15 +101,11 @@
                     </ul>
                     <hr>
                 </div>
-                {{!-- CAMPO DO CHAMADO --}}
-
-                {{!-- CAMPO DO CAMINHO/NATUREZA --}}
                 <a class="fw-bold fs-5 btn btn-outline-light d-flex justify-content-center mt-5"
                     data-bs-toggle="collapse" data-bs-target="#collapse2" role="button" aria-expanded="false"
                     aria-controls="collapse2" style="box-shadow: 0px 5px 10px black;border-radius: 5px 5px 5px 5px">
                     Direcionamento:
                 </a>
-
                 <div class="collapse" id="collapse2">
                     <ul class="mt-5 d-flex flex-rows  align-items-center justify-content-center"
                         style="list-style: none;">
@@ -126,9 +120,7 @@
                                 <option value="estoque">estoque</option>
                                 <option value="carregamento/entregas">carregamento/entregas</option>
                                 <option value="loja/departamentos">loja/departamentos</option>
-                                <option value="burocrático">burocrático</option>
                             </select>
-
                         </li>
                     </ul>
                     <hr>
@@ -169,9 +161,6 @@
                         </li>
                     </ul>
                 </div>
-                {{!-- CAMPO DO CHAMADO --}}
-
-                {{!-- CAMPO DO CLIENTE--}}
                 <a class="fw-bold fs-5 btn btn-outline-light d-flex justify-content-center mt-5"
                     data-bs-toggle="collapse" data-bs-target="#collapse3" role="button" aria-expanded="false"
                     aria-controls="collapse3" style="box-shadow: 0px 5px 10px black;border-radius: 5px 5px 5px 5px">
@@ -203,7 +192,7 @@
                         </li>
                         <li class="col-sm-8 me-5">
                             <input class="form-control check-input bg-dark text-white text-center" type="text"
-                                name="Representante" id="naonumero2" placeholder=" Nome Completo do Representante"
+                                name="Representante" placeholder=" Nome Completo do Representante"
                                 style="text-transform:lowercase" required>
                         </li>
                     </ul>
@@ -225,7 +214,6 @@
                             <script type="text/javascript">
                                 $("#telefone").mask("(00) 0000-00000");
                             </script>
-
                         </li>
                     </ul>
                     <hr>
@@ -235,22 +223,17 @@
                             <span>Email:</span>
                         </li>
                         <li class="col-sm-8 me-5">
-                            <input class="form-control  bg-dark text-white text-center" type="text"
-                                name="Email" placeholder="Email De Contato" maxlength="70" list="Email"
+                            <input class="form-control  bg-dark text-white text-center" type="text" name="Email"
+                                placeholder="Email De Contato" maxlength="70" list="Email"
                                 style="text-transform:lowercase" required>
                         </li>
                     </ul>
                 </div>
-                {{!-- CAMPO DO CLIENTE--}}
-
-                {{!-- CAMPO DA DESCRICÃO--}}
-
                 <a class="fw-bold fs-5 btn btn-outline-light d-flex justify-content-center mt-5"
                     data-bs-toggle="collapse" data-bs-target="#collapse4" role="button" aria-expanded="false"
                     aria-controls="collapse4" style="box-shadow: 0px 5px 10px black;border-radius: 5px 5px 5px 5px">
                     Descrição:
                 </a>
-
                 <div class="collapse" id="collapse4">
                     <ul class="mt-5 d-flex flex-rows  align-items-center justify-content-center"
                         style="list-style: none;">
@@ -258,8 +241,9 @@
                             <span>Titulo:</span>
                         </li>
                         <li class="col-sm-8 me-5">
-                            <input class="form-control bg-dark text-white text-center" name="Titulo" type="text"
-                                placeholder="Ex: Reencaminhar ao Fabricante" style="text-transform:lowercase" required>
+                            <input class="form-control bg-dark text-white text-center" name="Titulo"
+                                type="text" placeholder="Ex: Reencaminhar ao Fabricante"
+                                style="text-transform:lowercase" required>
                         </li>
                     </ul>
                     <hr>
@@ -270,9 +254,8 @@
                         </li>
                         <li class="col-sm-8 me-5">
                             <textarea class="form-control is-invalid bg-dark text-white text-center"
-                                id="validationTextarea" placeholder="Ex: Produto apresentou um defeito..."
-                                maxlength="256" name="Descricao" cols="10" rows="5" style="text-transform:lowercase"
-                                required></textarea>
+                                placeholder="Ex: Produto apresentou um defeito..." maxlength="256" name="Descricao"
+                                 cols="10" rows="5" style="text-transform:lowercase" required></textarea>
                         </li>
                     </ul>
                     <hr>
@@ -329,8 +312,8 @@
                             {{#each funcionarioentrando }}
                             <input type="hidden" name="Criadordochamado" value="{{Nome}}">
                             {{/each}}
-                            <select name="Nomedofuncionario" class="form-select bg-dark text-white"
-                                aria-label=".form-select-sm example" required>
+                            <select name="Nomedofuncionario"
+                                class="form-select bg-dark text-white" aria-label=".form-select-sm example" required>
                                 <option value="" selected>Selecione Um Responsavel Pelo Chamado</option>
                                 {{#each Funcionarios }}
                                 <option value="{{Nome}}">{{Nome}}</option>
@@ -341,7 +324,6 @@
                     </ul>
                     <hr>
                 </div>
-                {{!-- CAMPO DA DESCRICÃO--}}
                 <div class="d-flex justify-content-center ">
                     <button type="submit" class="btn btn-success mt-5">Realizar Chamado</button>
                 </div>
