@@ -12,8 +12,8 @@ router.get('/home', admController.paginaInicial);
 router.get('/cadastrar', admController.paginaCadastro);
 router.get('/chamados', admController.paginadeChamados);
 router.get('/listadechamados', admController.paginaDeListagemDeChamados);
-router.get('/listaprodutos', admController.paginaDeListagemDeProdutos,);
-router.get('/listaclientes', admController.paginaDeListagemDeClientes);
+router.get('/listadeprodutos', admController.paginaDeListagemDeProdutos,);
+router.get('/listadeclientes', admController.paginaDeListagemDeClientes);
 router.get('/meusChamados', admController.paginaDeChamadosDoFuncionario);
 /* METODOS GET PARA REDIRECIONAMENTO */
 

@@ -21,6 +21,8 @@
                     <ul class="card fw-bold bg-white p-2 " style="font-style: italic; list-style: none;">
                         <li class="ms-3">Titulo: {{Titulo}}</li>
                         <li class="ms-3 mt-2">Descrição: {{Descricao}}</li>
+                        <li class="ms-3 mt-2">Processo: {{Processo}}</li>
+                        <li class="ms-3 mt-2">Procedimento: {{Procedimento}}</li>
                         <li class="ms-3 mt-2">Tipo De Manutenção: {{Manutencao}}</li>
                         <li class="ms-3 mt-2">Destinatario: {{Destinatario}}</li>
                         <li class="ms-3 mt-2">Tempo Estimado: {{#formatDate Tempoestimado}}{{/formatDate}}</li>
@@ -50,6 +52,8 @@
                     <div class="card fw-bold bg-white p-2 " style="font-style: italic">
                         <li class="ms-3">Titulo: {{Titulo}}</li>
                         <li class="ms-3 mt-2">Descrição: {{Descricao}}</li>
+                        <li class="ms-3 mt-2">Processo: {{Processo}}</li>
+                        <li class="ms-3 mt-2">Procedimento: {{Procedimento}}</li>
                         <li class="ms-3 mt-2">Tipo De Manutenção: {{Manutencao}}</li>
                         <li class="ms-3 mt-2">Destinatario: {{Destinatario}}</li>
                         <li class="ms-3 mt-2">Tempo Estimado: {{#formatDate Tempoestimado}}{{/formatDate}}</li>
@@ -72,6 +76,8 @@
                 <ul class="card fw-bold bg-white p-2 " style="font-style: italic; list-style: none;">
                     <li class="ms-3">Titulo: {{Titulo}}</li>
                     <li class="ms-3 mt-2">Descrição: {{Descricao}}</li>
+                    <li class="ms-3 mt-2">Processo: {{Processo}}</li>
+                    <li class="ms-3 mt-2">Procedimento: {{Procedimento}}</li>
                     <li class="ms-3 mt-2">Tipo De Manutenção: {{Manutencao}}</li>
                     <li class="ms-3 mt-2 text-danger">Status: {{Status}}</li>
                     <li class="ms-3 mt-2 text-danger">Destinatario: {{Destinatario}}</li>
@@ -94,7 +100,8 @@
                     style="text-transform: lowercase" required>
                 <button class="btn btn-outline-success fw-bold " type="submit">Pesquisar</button>
             </form>
-            <p class="text-center text-white  fw-bold mt-5 ">Gostaria De Encontrar um Chamado ou Chamados em especifio pelo Tempo
+            <p class="text-center text-white  fw-bold mt-5 ">Gostaria De Encontrar um Chamado ou Chamados em especifio
+                pelo Tempo
                 Estimado?</p>
             <form class="d-flex justify-content-center align-items-center  gap-2" action="/buscandolistagemdechamados/"
                 method="get" enctype="multipart/form-data">

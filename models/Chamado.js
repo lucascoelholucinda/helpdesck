@@ -34,12 +34,7 @@ const chamado = new Schema({
         type: String,
         required: true
     },
-
-    Origem: {
-        type: String,
-        required: true
-    },
-
+    
     Empresa: {
         type: String,
         required: true,

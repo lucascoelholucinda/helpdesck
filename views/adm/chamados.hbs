@@ -87,7 +87,7 @@
                         <li class="col-sm-8 me-5">
                             <select name="Setor" class="form-select bg-dark text-white"
                                 aria-label=".form-select-sm example" required>
-                                <option value="" selected>Selecione um Modulo</option>
+                                <option value="" selected>Selecione um Setor</option>
                                 <option value="atendimento">atendimento</option>
                                 <option value="contabilidade">contabilidade</option>
                                 <option value="entregas">entregas</option>
@@ -115,7 +115,7 @@
                         <li class="col-sm-8 me-5">
                             <select name="Destinatario" class="form-select bg-dark text-white"
                                 aria-label=".form-select-sm example" required>
-                                <option value="" selected>Selecione um Caminho</option>
+                                <option value="" selected>Selecione um Destinatário</option>
                                 <option value="posto de coleta seletiva">posto de coleta seletiva</option>
                                 <option value="estoque">estoque</option>
                                 <option value="carregamento/entregas">carregamento/entregas</option>
@@ -132,7 +132,7 @@
                         <li class="col-sm-8 me-5">
                             <select name="Procedimento" class="form-select bg-dark text-white"
                                 aria-label=".form-select-sm example" required>
-                                <option value="" selected>Selecione uma Natureza</option>
+                                <option value="" selected>Selecione um Procedimento</option>
                                 <option value="venda">venda</option>
                                 <option value="danificação/falha">danificação/falha</option>
                                 <option value="atualização">atualização</option>
@@ -143,23 +143,6 @@
                         </li>
                     </ul>
                     <hr>
-                    <ul class="mt-4 d-flex flex-rows  align-items-center justify-content-center"
-                        style="list-style: none;">
-                        <li class="col-sm-3  fw-bold  me-2">
-                            <span>Origem:</span>
-                        </li>
-                        <li class="col-sm-8 me-5">
-                            <select name="Origem" class="form-select bg-dark text-white"
-                                aria-label=".form-select-sm example" required>
-                                <option value="" selected>Selecione a Origem</option>
-                                <option value="tecnológica">tecnológica</option>
-                                <option value="burocratica">burocratica</option>
-                                <option value="negociação">negociação</option>
-                                <option value="distribuição">distribuição</option>
-                                <option value="armazenamento">armazenamento</option>
-                            </select>
-                        </li>
-                    </ul>
                 </div>
                 <a class="fw-bold fs-5 btn btn-outline-light d-flex justify-content-center mt-5"
                     data-bs-toggle="collapse" data-bs-target="#collapse3" role="button" aria-expanded="false"
@@ -175,7 +158,7 @@
                         <li class="col-sm-8 me-5">
                             <select name="Empresa" class="form-select bg-dark text-white"
                                 aria-label=".form-select-sm example" required>
-                                <option value="" selected>Selecio Uma Empresa</option>
+                                <option value="" selected>Selecione Uma Empresa</option>
                                 <option value="positivo">positivo</option>
                                 <option value="electrolux">electrolux</option>
                                 <option value="submarino">submarino</option>
@@ -316,7 +299,7 @@
                                 class="form-select bg-dark text-white" aria-label=".form-select-sm example" required>
                                 <option value="" selected>Selecione Um Responsavel Pelo Chamado</option>
                                 {{#each Funcionarios }}
-                                <option value="{{Nome}}">{{Nome}}</option>
+                                <option value="{{Nome}}">{{Nome}} | Cargo: {{Cargo}}</option>
                                 {{/each}}
                             </select>
 
