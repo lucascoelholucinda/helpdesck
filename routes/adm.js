@@ -3,9 +3,6 @@ const router = express.Router()
 import uploadUser from '../upload/uploadimg.js'
 import admController from '../controller/adm.js'
 
-
-
-
 /* METODOS GET PARA REDIRECIONAMENTO */
 router.get('/', admController.inicializacao);
 router.get('/home', admController.paginaInicial);
