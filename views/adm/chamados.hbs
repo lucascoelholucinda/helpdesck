@@ -37,9 +37,9 @@
                             <span>Valor:</span>
                         </li>
                         <li class="col-sm-8 me-5">
-                            <input class="form-control bg-dark text-white text-center" type="text" name="Valor" id="Valor"
-                                placeholder="Valor do Produto" data-thousands="." data-decimal="," data-prefix="R$ "
-                                required>
+                            <input class="form-control bg-dark text-white text-center" type="text" name="Valor"
+                                id="Valor" placeholder="Valor do Produto" data-thousands="." data-decimal=","
+                                data-prefix="R$ " required>
                             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                             <script
                                 src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
@@ -224,9 +224,8 @@
                             <span>Titulo:</span>
                         </li>
                         <li class="col-sm-8 me-5">
-                            <input class="form-control bg-dark text-white text-center" name="Titulo"
-                                type="text" placeholder="Ex: Reencaminhar ao Fabricante"
-                                style="text-transform:lowercase" required>
+                            <input class="form-control bg-dark text-white text-center" name="Titulo" type="text"
+                                placeholder="Ex: Reencaminhar ao Fabricante" style="text-transform:lowercase" required>
                         </li>
                     </ul>
                     <hr>
@@ -238,7 +237,7 @@
                         <li class="col-sm-8 me-5">
                             <textarea class="form-control is-invalid bg-dark text-white text-center"
                                 placeholder="Ex: Produto apresentou um defeito..." maxlength="256" name="Descricao"
-                                 cols="10" rows="5" style="text-transform:lowercase" required></textarea>
+                                cols="10" rows="5" style="text-transform:lowercase" required></textarea>
                         </li>
                     </ul>
                     <hr>
@@ -295,8 +294,8 @@
                             {{#each funcionarioentrando }}
                             <input type="hidden" name="Criadordochamado" value="{{Nome}}">
                             {{/each}}
-                            <select name="Nomedofuncionario"
-                                class="form-select bg-dark text-white" aria-label=".form-select-sm example" required>
+                            <select name="Nomedofuncionario" class="form-select bg-dark text-white"
+                                aria-label=".form-select-sm example" required>
                                 <option value="" selected>Selecione Um Responsavel Pelo Chamado</option>
                                 {{#each Funcionarios }}
                                 <option value="{{Nome}}">{{Nome}} | Cargo: {{Cargo}}</option>
